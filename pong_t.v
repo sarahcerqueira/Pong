@@ -54,8 +54,9 @@ begin
 end
 
 
-pong u0 (DATA_AD0, DATA_AD1, barra_d_y,barra_e_y, bola_x, bola_y, BUSY, Clock, iniciar,lcd_databus,
-lcd_operationenable,lcd_registerselect,lcd_readwrite, Reset_n, RAnNum);
+pong u0 (RAnNum, DATA_AD0, DATA_AD1, barra_d_y,barra_e_y, bola_x, bola_y, BUSY, Clock, iniciar,lcd_databus,
+lcd_operationenable,lcd_registerselect,lcd_readwrite, Reset_n);
+
 
 AD converso_ad (reset, Clock, ADC_OUT, ADC_CNVST, ADC_CS_N, ADC_REFSEL, ADC_SCLK, ADC_SD, ADC_UB, ADC_SEL, BUSY,
 DATA_AD0, DATA_AD1);

@@ -1,5 +1,5 @@
 |pong_t
-Clock => Clock.IN3
+Clock => Clock.IN4
 HSync <= sicro:tela.port1
 VSync <= sicro:tela.port2
 R[0] <= sicro:tela.port3
@@ -25,25 +25,17 @@ ADC_SD <= AD:converso_ad.port7
 ADC_UB <= AD:converso_ad.port8
 ADC_SEL <= AD:converso_ad.port9
 iniciar => iniciar.IN1
-lcd_databus[0] <= pong:u0.port9
-lcd_databus[1] <= pong:u0.port9
-lcd_databus[2] <= pong:u0.port9
-lcd_databus[3] <= pong:u0.port9
-lcd_databus[4] <= pong:u0.port9
-lcd_databus[5] <= pong:u0.port9
-lcd_databus[6] <= pong:u0.port9
-lcd_databus[7] <= pong:u0.port9
-lcd_operationenable <= pong:u0.port10
-lcd_registerselect <= pong:u0.port11
-lcd_readwrite <= pong:u0.port12
-num_aleatorio[0] => num_aleatorio[0].IN1
-num_aleatorio[1] => num_aleatorio[1].IN1
-num_aleatorio[2] => num_aleatorio[2].IN1
-num_aleatorio[3] => num_aleatorio[3].IN1
-num_aleatorio[4] => num_aleatorio[4].IN1
-num_aleatorio[5] => num_aleatorio[5].IN1
-num_aleatorio[6] => num_aleatorio[6].IN1
-num_aleatorio[7] => num_aleatorio[7].IN1
+lcd_databus[0] <= pong:u0.port10
+lcd_databus[1] <= pong:u0.port10
+lcd_databus[2] <= pong:u0.port10
+lcd_databus[3] <= pong:u0.port10
+lcd_databus[4] <= pong:u0.port10
+lcd_databus[5] <= pong:u0.port10
+lcd_databus[6] <= pong:u0.port10
+lcd_databus[7] <= pong:u0.port10
+lcd_operationenable <= pong:u0.port11
+lcd_registerselect <= pong:u0.port12
+lcd_readwrite <= pong:u0.port13
 
 
 |pong_t|pong:u0
@@ -57659,5 +57651,32 @@ barra_d_y[8] => Add9.IN2
 barra_d_y[9] => LessThan12.IN1
 barra_d_y[9] => Add7.IN11
 barra_d_y[9] => Add9.IN1
+
+
+|pong_t|RandomNumber:rand
+Clock => counter[0].CLK
+Clock => counter[1].CLK
+Clock => counter[2].CLK
+Clock => counter[3].CLK
+Clock => counter[4].CLK
+Clock => counter[5].CLK
+Clock => counter[6].CLK
+Clock => counter[7].CLK
+Reset => counter.OUTPUTSELECT
+Reset => counter.OUTPUTSELECT
+Reset => counter.OUTPUTSELECT
+Reset => counter.OUTPUTSELECT
+Reset => counter.OUTPUTSELECT
+Reset => counter.OUTPUTSELECT
+Reset => counter.OUTPUTSELECT
+Reset => counter.OUTPUTSELECT
+RanNum[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+RanNum[1] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+RanNum[2] <= <GND>
+RanNum[3] <= <GND>
+RanNum[4] <= <GND>
+RanNum[5] <= <GND>
+RanNum[6] <= <GND>
+RanNum[7] <= <GND>
 
 

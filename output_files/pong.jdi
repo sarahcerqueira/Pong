@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="c5df0d78aff36d44040a"/>
+    <hash md5_digest_80b="a58b145e11410fed895c"/>
   </project>
   <file_info>
     <file device="EP4CE30F23C7" path="pong.sof" usercode="0xFFFFFFFF"/>
@@ -99,7 +99,7 @@
     </sld_info>
     <sld_info hpath="pong:u0" name="u0">
       <assignment_values>
-        <assignment_value text="QSYS_NAME pong HAS_SOPCINFO 1 GENERATION_ID 1519066898"/>
+        <assignment_value text="QSYS_NAME pong HAS_SOPCINFO 1 GENERATION_ID 1519074968"/>
       </assignment_values>
       <parameters/>
     </sld_info>
