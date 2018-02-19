@@ -1,0 +1,88 @@
+MIF/HEX Update report for pong
+Mon Feb 19 17:10:20 2018
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. MIF/HEX Update Summary
+  3. MIF/HEX Update Processed Files
+  4. MIF/HEX Update Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------+
+; MIF/HEX Update Summary                                        ;
++-----------------------+---------------------------------------+
+; MIF/HEX Update Status ; Successful - Mon Feb 19 17:10:20 2018 ;
+; Revision Name         ; pong                                  ;
+; Top-level Entity Name ; pong_t                                ;
+; Family                ; Cyclone IV E                          ;
+; Device                ; EP4CE30F23C7                          ;
++-----------------------+---------------------------------------+
+
+
++-------------------------------------------------+
+; MIF/HEX Update Processed Files                  ;
++-------------------------------------------------+
+; File Name                                       ;
++-------------------------------------------------+
+; C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex ;
++-------------------------------------------------+
+
+
++-------------------------+
+; MIF/HEX Update Messages ;
++-------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime MIF/HEX Update
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Mon Feb 19 17:10:17 2018
+Info: Command: quartus_cdb pong -c pong --update_mif
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Warning (39023): Can't find Memory Initialization File pong_nios_rf_ram_a.mif -- skipped updates for this file
+Warning (39023): Can't find Memory Initialization File pong_nios_rf_ram_b.mif -- skipped updates for this file
+Warning (39023): Can't find Memory Initialization File pong_nios_ociram_default_contents.mif -- skipped updates for this file
+Warning (113015): Width of data items in "onchip_mem.hex" is greater than the memory width. Wrapping data items to subsequent addresses. Found 253 warnings, reporting 10 File: C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex Line: 1
+    Warning (113009): Data at line (2) of memory initialization file "onchip_mem.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex Line: 2
+    Warning (113009): Data at line (3) of memory initialization file "onchip_mem.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex Line: 3
+    Warning (113009): Data at line (4) of memory initialization file "onchip_mem.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex Line: 4
+    Warning (113009): Data at line (5) of memory initialization file "onchip_mem.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex Line: 5
+    Warning (113009): Data at line (6) of memory initialization file "onchip_mem.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex Line: 6
+    Warning (113009): Data at line (7) of memory initialization file "onchip_mem.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex Line: 7
+    Warning (113009): Data at line (8) of memory initialization file "onchip_mem.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex Line: 8
+    Warning (113009): Data at line (9) of memory initialization file "onchip_mem.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex Line: 9
+    Warning (113009): Data at line (10) of memory initialization file "onchip_mem.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex Line: 10
+    Warning (113009): Data at line (11) of memory initialization file "onchip_mem.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex Line: 11
+Critical Warning (127005): Memory depth (3000) in the design file differs from memory depth (2024) in the Memory Initialization File "C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex" -- setting initial value for remaining addresses to 0
+Info (39024): Processed the following Memory Initialization File(s)
+    Info (39025): Processed Memory Initialization File C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex File: C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex Line: 0
+Info: Quartus Prime MIF/HEX Update was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 666 megabytes
+    Info: Processing ended: Mon Feb 19 17:10:20 2018
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+

@@ -1,0 +1,41 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst pong.nios -pg 1 -lvl 1 -y 190
+preplace inst pong.barra_e_y -pg 1 -lvl 3 -y 950
+preplace inst pong.barra_d_y -pg 1 -lvl 3 -y 450
+preplace inst pong.lcd -pg 1 -lvl 2 -y 190
+preplace inst pong.rst -pg 1 -lvl 3 -y 250
+preplace inst pong.mul_0 -pg 1 -lvl 3 -y 790
+preplace inst pong.ana_barra_d -pg 1 -lvl 3 -y 1250
+preplace inst pong.resto -pg 1 -lvl 3 -y 830
+preplace inst pong.jtag_uart -pg 1 -lvl 3 -y 690
+preplace inst pong.iniciar -pg 1 -lvl 3 -y 130
+preplace inst pong.ana_barra_e -pg 1 -lvl 3 -y 350
+preplace inst pong -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst pong.div -pg 1 -lvl 3 -y 650
+preplace inst pong.clk_0 -pg 1 -lvl 2 -y 440
+preplace inst pong.bola_x -pg 1 -lvl 3 -y 1050
+preplace inst pong.aleatorio -pg 1 -lvl 3 -y 30
+preplace inst pong.bola_y -pg 1 -lvl 3 -y 1150
+preplace inst pong.busy -pg 1 -lvl 3 -y 550
+preplace inst pong.memoria -pg 1 -lvl 3 -y 870
+preplace netloc EXPORT<net_container>pong</net_container>(SLAVE)clk_0.clk_in,(SLAVE)pong.clk) 1 0 2 NJ 450 NJ
+preplace netloc EXPORT<net_container>pong</net_container>(SLAVE)pong.busy,(SLAVE)busy.external_connection) 1 0 3 NJ 580 NJ 580 NJ
+preplace netloc FAN_OUT<net_container>pong</net_container>(SLAVE)resto.nios_custom_instruction_slave,(SLAVE)mul_0.nios_custom_instruction_slave,(MASTER)nios.custom_instruction_master,(SLAVE)lcd.LCD_instruction,(SLAVE)div.nios_custom_instruction_slave) 1 1 2 460 260 820
+preplace netloc EXPORT<net_container>pong</net_container>(SLAVE)pong.iniciar,(SLAVE)iniciar.external_connection) 1 0 3 NJ 160 NJ 160 NJ
+preplace netloc EXPORT<net_container>pong</net_container>(SLAVE)pong.ana_barra_d,(SLAVE)ana_barra_d.external_connection) 1 0 3 NJ 1280 NJ 1280 NJ
+preplace netloc EXPORT<net_container>pong</net_container>(SLAVE)pong.aleatorio,(SLAVE)aleatorio.external_connection) 1 0 3 NJ 60 NJ 60 NJ
+preplace netloc INTERCONNECT<net_container>pong</net_container>(SLAVE)ana_barra_d.s1,(SLAVE)busy.s1,(SLAVE)bola_y.s1,(SLAVE)memoria.s1,(MASTER)nios.data_master,(SLAVE)iniciar.s1,(MASTER)nios.instruction_master,(SLAVE)rst.s1,(SLAVE)nios.jtag_debug_module,(SLAVE)barra_e_y.s1,(SLAVE)barra_d_y.s1,(SLAVE)ana_barra_e.s1,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)bola_x.s1,(SLAVE)aleatorio.s1) 1 0 3 130 320 400 300 860
+preplace netloc EXPORT<net_container>pong</net_container>(SLAVE)pong.lcd,(SLAVE)lcd.LCD_Conduit) 1 0 2 NJ 180 NJ
+preplace netloc FAN_OUT<net_container>pong</net_container>(SLAVE)jtag_uart.clk,(SLAVE)ana_barra_d.clk,(SLAVE)barra_e_y.clk,(SLAVE)busy.clk,(MASTER)clk_0.clk,(SLAVE)ana_barra_e.clk,(SLAVE)iniciar.clk,(SLAVE)barra_d_y.clk,(SLAVE)aleatorio.clk,(SLAVE)bola_y.clk,(SLAVE)memoria.clk1,(SLAVE)bola_x.clk,(SLAVE)nios.clk,(SLAVE)rst.clk) 1 0 3 110 380 NJ 360 900
+preplace netloc EXPORT<net_container>pong</net_container>(SLAVE)ana_barra_e.external_connection,(SLAVE)pong.ana_barra_e) 1 0 3 NJ 400 NJ 380 NJ
+preplace netloc FAN_OUT<net_container>pong</net_container>(SLAVE)iniciar.reset,(SLAVE)barra_d_y.reset,(SLAVE)bola_y.reset,(SLAVE)jtag_uart.reset,(SLAVE)rst.reset,(SLAVE)bola_x.reset,(SLAVE)barra_e_y.reset,(SLAVE)nios.reset_n,(SLAVE)aleatorio.reset,(SLAVE)ana_barra_d.reset,(MASTER)clk_0.clk_reset,(SLAVE)memoria.reset1,(SLAVE)ana_barra_e.reset,(SLAVE)busy.reset) 1 0 3 150 360 NJ 340 880
+preplace netloc EXPORT<net_container>pong</net_container>(SLAVE)bola_y.external_connection,(SLAVE)pong.bola_y) 1 0 3 NJ 1180 NJ 1180 NJ
+preplace netloc POINT_TO_POINT<net_container>pong</net_container>(MASTER)nios.jtag_debug_module_reset,(SLAVE)clk_0.clk_in_reset) 1 1 1 420
+preplace netloc EXPORT<net_container>pong</net_container>(SLAVE)rst.external_connection,(SLAVE)pong.rst) 1 0 3 NJ 340 NJ 320 NJ
+preplace netloc EXPORT<net_container>pong</net_container>(SLAVE)pong.barra_d_y,(SLAVE)barra_d_y.external_connection) 1 0 3 NJ 430 NJ 430 NJ
+preplace netloc EXPORT<net_container>pong</net_container>(SLAVE)pong.bola_x,(SLAVE)bola_x.external_connection) 1 0 3 NJ 1080 NJ 1080 NJ
+preplace netloc EXPORT<net_container>pong</net_container>(SLAVE)barra_e_y.external_connection,(SLAVE)pong.barra_e_y) 1 0 3 NJ 980 NJ 980 NJ
+preplace netloc POINT_TO_POINT<net_container>pong</net_container>(MASTER)nios.d_irq,(SLAVE)jtag_uart.irq) 1 1 2 NJ 280 800
+levelinfo -pg 1 0 80 1170
+levelinfo -hier pong 90 180 610 950 1160

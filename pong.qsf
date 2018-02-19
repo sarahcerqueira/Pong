@@ -1,0 +1,93 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2016  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Intel and sold by Intel or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+# Date created = 23:33:33  January 30, 2018
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		pong_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE30F23C7
+set_global_assignment -name TOP_LEVEL_ENTITY pong_t
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 16.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "23:33:33  JANUARY 30, 2018"
+set_global_assignment -name LAST_QUARTUS_VERSION "16.1.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_location_assignment PIN_AB18 -to ADC_CNVST
+set_location_assignment PIN_AA17 -to ADC_CS_N
+set_location_assignment PIN_AB17 -to ADC_REFSEL
+set_location_assignment PIN_AA18 -to ADC_SCLK
+set_location_assignment PIN_AA16 -to ADC_SD
+set_location_assignment PIN_AB16 -to ADC_SEL
+set_location_assignment PIN_AB20 -to ADC_UB
+set_location_assignment PIN_B16 -to HSync
+set_location_assignment PIN_A17 -to VSync
+set_location_assignment PIN_T1 -to Clock
+set_location_assignment PIN_Y17 -to Reset_n
+set_location_assignment PIN_AB19 -to ADC_OUT[0]
+set_location_assignment PIN_AA19 -to ADC_OUT[1]
+set_location_assignment PIN_A9 -to R[0]
+set_location_assignment PIN_C10 -to R[1]
+set_location_assignment PIN_A10 -to R[2]
+set_location_assignment PIN_B10 -to R[3]
+set_location_assignment PIN_C13 -to G[0]
+set_location_assignment PIN_A13 -to G[1]
+set_location_assignment PIN_B13 -to G[2]
+set_location_assignment PIN_A14 -to G[3]
+set_location_assignment PIN_B14 -to B[0]
+set_location_assignment PIN_B15 -to B[2]
+set_location_assignment PIN_A16 -to B[3]
+set_location_assignment PIN_A15 -to B[1]
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name QIP_FILE pong/synthesis/pong.qip
+set_location_assignment PIN_V22 -to iniciar
+set_location_assignment PIN_V8 -to lcd_databus[0]
+set_location_assignment PIN_V7 -to lcd_databus[1]
+set_location_assignment PIN_V6 -to lcd_databus[2]
+set_location_assignment PIN_V5 -to lcd_databus[3]
+set_location_assignment PIN_V4 -to lcd_databus[4]
+set_location_assignment PIN_Y4 -to lcd_databus[5]
+set_location_assignment PIN_V3 -to lcd_databus[6]
+set_location_assignment PIN_Y3 -to lcd_databus[7]
+set_location_assignment PIN_V9 -to lcd_operationenable
+set_location_assignment PIN_U8 -to lcd_readwrite
+set_location_assignment PIN_U9 -to lcd_registerselect
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

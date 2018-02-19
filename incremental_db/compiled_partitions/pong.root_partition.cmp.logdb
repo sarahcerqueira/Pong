@@ -1,0 +1,3 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,pong:u0|CI_multiplicacao:mul_0|multiplicacao:mul|lpm_mult:Mult0|mult_7dt:auto_generated|mac_out2,
+PORT_SWAPPING,PORT_SWAPPING_FINISHED,pong:u0|CI_multiplicacao:mul_0|multiplicacao:mul|lpm_mult:Mult0|mult_7dt:auto_generated|mac_mult1,

@@ -1,0 +1,15 @@
+
+State Machine - |pong_t|pong:u0|pong_nios:nios|pong_nios_nios2_oci:the_pong_nios_nios2_oci|pong_nios_jtag_debug_module_wrapper:the_pong_nios_jtag_debug_module_wrapper|pong_nios_jtag_debug_module_tck:the_pong_nios_jtag_debug_module_tck|DRsize
+Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
+DRsize.000 0 0 0 0 0 0 
+DRsize.001 0 0 0 0 1 1 
+DRsize.010 0 0 0 1 0 1 
+DRsize.011 0 0 1 0 0 1 
+DRsize.100 0 1 0 0 0 1 
+DRsize.101 1 0 0 0 0 1 
+
+State Machine - |pong_t|pong:u0|LCD:lcd|state
+Name state.Busy state.Final state.Idle 
+state.Idle 0 0 0 
+state.Busy 1 0 1 
+state.Final 0 1 1 

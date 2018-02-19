@@ -1,0 +1,194 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 384 592)
+	(text "pong" (rect 179 -1 197 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 576 20 588)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "aleatorio_export[7..0]" (rect 0 0 82 12)(font "Arial" (font_size 8)))
+		(text "aleatorio_export[7..0]" (rect 4 61 136 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 144 72)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "ana_barra_d_export[7..0]" (rect 0 0 102 12)(font "Arial" (font_size 8)))
+		(text "ana_barra_d_export[7..0]" (rect 4 101 148 112)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 144 112)(line_width 3))
+	)
+	(port
+		(pt 0 152)
+		(input)
+		(text "ana_barra_e_export[7..0]" (rect 0 0 102 12)(font "Arial" (font_size 8)))
+		(text "ana_barra_e_export[7..0]" (rect 4 141 148 152)(font "Arial" (font_size 8)))
+		(line (pt 0 152)(pt 144 152)(line_width 3))
+	)
+	(port
+		(pt 0 392)
+		(input)
+		(text "clk_clk" (rect 0 0 27 12)(font "Arial" (font_size 8)))
+		(text "clk_clk" (rect 4 381 46 392)(font "Arial" (font_size 8)))
+		(line (pt 0 392)(pt 144 392)(line_width 1))
+	)
+	(port
+		(pt 0 432)
+		(input)
+		(text "iniciar_export[7..0]" (rect 0 0 71 12)(font "Arial" (font_size 8)))
+		(text "iniciar_export[7..0]" (rect 4 421 124 432)(font "Arial" (font_size 8)))
+		(line (pt 0 432)(pt 144 432)(line_width 3))
+	)
+	(port
+		(pt 0 560)
+		(input)
+		(text "rst_export[7..0]" (rect 0 0 61 12)(font "Arial" (font_size 8)))
+		(text "rst_export[7..0]" (rect 4 549 100 560)(font "Arial" (font_size 8)))
+		(line (pt 0 560)(pt 144 560)(line_width 3))
+	)
+	(port
+		(pt 0 192)
+		(output)
+		(text "barra_d_y_export[9..0]" (rect 0 0 94 12)(font "Arial" (font_size 8)))
+		(text "barra_d_y_export[9..0]" (rect 4 181 136 192)(font "Arial" (font_size 8)))
+		(line (pt 0 192)(pt 144 192)(line_width 3))
+	)
+	(port
+		(pt 0 232)
+		(output)
+		(text "barra_e_y_export[9..0]" (rect 0 0 94 12)(font "Arial" (font_size 8)))
+		(text "barra_e_y_export[9..0]" (rect 4 221 136 232)(font "Arial" (font_size 8)))
+		(line (pt 0 232)(pt 144 232)(line_width 3))
+	)
+	(port
+		(pt 0 272)
+		(output)
+		(text "bola_x_export[9..0]" (rect 0 0 76 12)(font "Arial" (font_size 8)))
+		(text "bola_x_export[9..0]" (rect 4 261 118 272)(font "Arial" (font_size 8)))
+		(line (pt 0 272)(pt 144 272)(line_width 3))
+	)
+	(port
+		(pt 0 312)
+		(output)
+		(text "bola_y_export[9..0]" (rect 0 0 77 12)(font "Arial" (font_size 8)))
+		(text "bola_y_export[9..0]" (rect 4 301 118 312)(font "Arial" (font_size 8)))
+		(line (pt 0 312)(pt 144 312)(line_width 3))
+	)
+	(port
+		(pt 0 352)
+		(output)
+		(text "busy_export[7..0]" (rect 0 0 70 12)(font "Arial" (font_size 8)))
+		(text "busy_export[7..0]" (rect 4 341 106 352)(font "Arial" (font_size 8)))
+		(line (pt 0 352)(pt 144 352)(line_width 3))
+	)
+	(port
+		(pt 0 472)
+		(output)
+		(text "lcd_databus[7..0]" (rect 0 0 67 12)(font "Arial" (font_size 8)))
+		(text "lcd_databus[7..0]" (rect 4 461 106 472)(font "Arial" (font_size 8)))
+		(line (pt 0 472)(pt 144 472)(line_width 3))
+	)
+	(port
+		(pt 0 488)
+		(output)
+		(text "lcd_operationenable" (rect 0 0 76 12)(font "Arial" (font_size 8)))
+		(text "lcd_operationenable" (rect 4 477 118 488)(font "Arial" (font_size 8)))
+		(line (pt 0 488)(pt 144 488)(line_width 1))
+	)
+	(port
+		(pt 0 504)
+		(output)
+		(text "lcd_registerselect" (rect 0 0 68 12)(font "Arial" (font_size 8)))
+		(text "lcd_registerselect" (rect 4 493 112 504)(font "Arial" (font_size 8)))
+		(line (pt 0 504)(pt 144 504)(line_width 1))
+	)
+	(port
+		(pt 0 520)
+		(output)
+		(text "lcd_readwrite" (rect 0 0 51 12)(font "Arial" (font_size 8)))
+		(text "lcd_readwrite" (rect 4 509 82 520)(font "Arial" (font_size 8)))
+		(line (pt 0 520)(pt 144 520)(line_width 1))
+	)
+	(drawing
+		(text "aleatorio" (rect 95 43 244 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 149 67 334 144)(font "Arial" (color 0 0 0)))
+		(text "ana_barra_d" (rect 70 83 206 179)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 149 107 334 224)(font "Arial" (color 0 0 0)))
+		(text "ana_barra_e" (rect 70 123 206 259)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 149 147 334 304)(font "Arial" (color 0 0 0)))
+		(text "barra_d_y" (rect 85 163 224 339)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 149 187 334 384)(font "Arial" (color 0 0 0)))
+		(text "barra_e_y" (rect 85 203 224 419)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 149 227 334 464)(font "Arial" (color 0 0 0)))
+		(text "bola_x" (rect 107 243 250 499)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 149 267 334 544)(font "Arial" (color 0 0 0)))
+		(text "bola_y" (rect 107 283 250 579)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 149 307 334 624)(font "Arial" (color 0 0 0)))
+		(text "busy" (rect 118 323 260 659)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 149 347 334 704)(font "Arial" (color 0 0 0)))
+		(text "clk" (rect 129 363 276 739)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 149 387 316 784)(font "Arial" (color 0 0 0)))
+		(text "iniciar" (rect 111 403 264 819)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 149 427 334 864)(font "Arial" (color 0 0 0)))
+		(text "lcd" (rect 129 443 276 899)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "databus" (rect 149 467 340 944)(font "Arial" (color 0 0 0)))
+		(text "operationenable" (rect 149 483 388 976)(font "Arial" (color 0 0 0)))
+		(text "registerselect" (rect 149 499 382 1008)(font "Arial" (color 0 0 0)))
+		(text "readwrite" (rect 149 515 352 1040)(font "Arial" (color 0 0 0)))
+		(text "rst" (rect 129 531 276 1075)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 149 555 334 1120)(font "Arial" (color 0 0 0)))
+		(text " pong " (rect 361 576 758 1162)(font "Arial" ))
+		(line (pt 144 32)(pt 240 32)(line_width 1))
+		(line (pt 240 32)(pt 240 576)(line_width 1))
+		(line (pt 144 576)(pt 240 576)(line_width 1))
+		(line (pt 144 32)(pt 144 576)(line_width 1))
+		(line (pt 145 52)(pt 145 76)(line_width 1))
+		(line (pt 146 52)(pt 146 76)(line_width 1))
+		(line (pt 145 92)(pt 145 116)(line_width 1))
+		(line (pt 146 92)(pt 146 116)(line_width 1))
+		(line (pt 145 132)(pt 145 156)(line_width 1))
+		(line (pt 146 132)(pt 146 156)(line_width 1))
+		(line (pt 145 172)(pt 145 196)(line_width 1))
+		(line (pt 146 172)(pt 146 196)(line_width 1))
+		(line (pt 145 212)(pt 145 236)(line_width 1))
+		(line (pt 146 212)(pt 146 236)(line_width 1))
+		(line (pt 145 252)(pt 145 276)(line_width 1))
+		(line (pt 146 252)(pt 146 276)(line_width 1))
+		(line (pt 145 292)(pt 145 316)(line_width 1))
+		(line (pt 146 292)(pt 146 316)(line_width 1))
+		(line (pt 145 332)(pt 145 356)(line_width 1))
+		(line (pt 146 332)(pt 146 356)(line_width 1))
+		(line (pt 145 372)(pt 145 396)(line_width 1))
+		(line (pt 146 372)(pt 146 396)(line_width 1))
+		(line (pt 145 412)(pt 145 436)(line_width 1))
+		(line (pt 146 412)(pt 146 436)(line_width 1))
+		(line (pt 145 452)(pt 145 524)(line_width 1))
+		(line (pt 146 452)(pt 146 524)(line_width 1))
+		(line (pt 145 540)(pt 145 564)(line_width 1))
+		(line (pt 146 540)(pt 146 564)(line_width 1))
+		(line (pt 0 0)(pt 384 0)(line_width 1))
+		(line (pt 384 0)(pt 384 592)(line_width 1))
+		(line (pt 0 592)(pt 384 592)(line_width 1))
+		(line (pt 0 0)(pt 0 592)(line_width 1))
+	)
+)

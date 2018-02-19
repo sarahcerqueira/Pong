@@ -1,0 +1,63 @@
+/**
+    Sarah Pereira
+
+    Este modulo faz sincronização do Hsync e do VSync do vga.
+*/
+
+module sicronizador(Clock, HSync, VSync, HPOS, VPOS);
+
+
+//INPUTS
+input Clock ;
+
+
+//OUTPUTS
+output reg HSync;
+output reg VSync;
+output reg HPOS;
+output reg VPOS;
+
+//HORIZONTAL TIMING CONSTANTS
+localparam hva=640; //visible area  - area visivel
+localparam hfp=16; //front porch 	- varada frontal
+localparam hsp=96; //sync pulse    - Pulso de sincronização
+localparam hbp=48; //front porch - varanda do fundo
+
+//HORIZONTAL TIMING CONSTANTS
+localparam vva=480; //visible area - area visivel
+localparam vfp=10; //front porch  - varanda frontal
+localparam vsp=2; //sync pulse	- pulso de sincronização
+localparam vbp=32; //front porch - varanda do fundo
+
+
+always @(posedge Clock ) begin
+
+//<Contador>
+    if( HPOS < (hva+hfp+hsp+hbp) )				//Verifica se HPOS é menor que a soma das váriáveis
+        HPOS <= HPOS + 1;
+    else										//Se não for passa para a próxima linha
+        begin 
+            HPOS <= 1'b0;					
+            if(VPOS < (vva+vfp+vsp+vbp))
+                VPOS <= VPOS + 1;
+            else
+                VPOS <= 1'b0;
+        end
+
+//</Contador>
+
+//Sincronização
+
+    if(HPOS > (hva+hfp) && HPOS < (hva+hfp+hsp))
+        HSync <= 1'b1;
+    else
+        HSync <= 1'b0;
+
+    if(VPOS > (vva+vfp) && VPOS < (vva+vfp+vsp))
+        VSync <= 1'b1;
+    else
+        VSync <= 1'b0;  
+
+
+end
+endmodule

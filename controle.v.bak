@@ -1,0 +1,36 @@
+
+`include "vga_sprite.v"
+`include "AD.v"
+
+
+module controle (Reset_n, Clock, ADC_OUT, barra_e_y, barra_d_y, bola_x, bola_y, ADC_CNVST, ADC_CS_N, ADC_REFSEL, ADC_SCLK, ADC_SD, ADC_UB, 
+	ADC_SEL, DATA_AD0, HSync, VSync, R, G, B);
+
+input Reset_n; 				//Resete para o conversor AD
+input Clock;				//Clock 50MHz
+input ADC_OUT;				//AD
+input barra_e_y;			//Posição da y barra esquedar
+input barra_d_y;			//Posiçao da y barra direita
+input bola_x;				//Posição x da bola
+input bola_y;				//Posição y da bola
+
+output ADC_CNVST;			//AD
+output ADC_CS_N;			//AD
+output ADC_REFSEL;			//AD
+output ADC_SCLK;			//AD
+output ADC_SD;				//AD
+output ADC_UB;				//AD
+output ADC_SEL;				//AD
+output BUSY;				//AD
+output DATA_AD0;			//AD
+output DATA_AD1;			//AD
+output HSync;				//Saída vga HSync
+output VSync;				//Saída vga VSync
+output R;					//Saída vga R
+output G;					//Saída vga G
+output B;					//Saída vga B
+
+AD converso_ad (Reset_n, Clock, ADC_OUT, ADC_CNVST, ADC_CS_N, ADC_REFSEL, ADC_SCLK, ADC_SD, ADC_UB, ADC_SEL, BUSY,DATA_AD0, DATA_AD1);
+vga_sprite monitor(Clock, Reset_n, barra_e_y, barra_d_y, bola_x, bola_y, HSync, VSync, R, G, B);
+
+endmodule

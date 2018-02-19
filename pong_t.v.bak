@@ -1,0 +1,74 @@
+`include "sicro.v"
+
+module pong(Clock, HSync, VSync, R, G, B, Reset_n, ADC_OUT, ADC_CNVST, ADC_CS_N, 
+ADC_REFSEL, ADC_SCLK, ADC_SD, ADC_UB, ADC_SEL);
+
+
+//INPUTS
+input Clock ;
+input Reset_n; 				//Resete para o conversor AD
+input [1:0] ADC_OUT;				//AD
+
+//OUTPUTS
+output reg HSync;
+output reg VSync;
+output reg [3:0] R;
+output reg [3:0] G;
+output reg [3:0] B;
+
+output ADC_CNVST;			//AD
+output ADC_CS_N;			//AD
+output ADC_REFSEL;			//AD
+output ADC_SCLK;			//AD
+output ADC_SD;				//AD
+output ADC_UB;				//AD
+output ADC_SEL;				//AD
+wire BUSY;				//AD
+wire [7:0]DATA_AD0;			//AD
+wire [7:0]DATA_AD1;			//AD
+
+reg [9:0] HPOS = 10'b0;
+
+reg [9:0] VPOS = 10'b0;
+
+
+//Sprites
+reg [14:0] barra_e [0:99];			//Barra 100 por 15
+reg [14:0] barra_d [99:0];			//Barra 100 por 15
+reg [19: 0] bola [0:19];			//Bola 20 por 10
+
+//Pocição das Sprites
+reg [9:0] barra_e_x = 0;
+//reg [9:0] barra_e_y = DATA_AD1;
+
+reg [9:0] barra_d_x = 625;
+//reg [9:0] barra_d_y = DATA_AD0;
+
+reg [9:0] bola_x = 320;
+reg [9:0] bola_y = 0;
+
+//Tamanho das sprite
+reg [9:0] largura_barra = 15;
+reg [9:0] altura_barra = 100;
+reg [9:0] tamanho_bola = 20;
+
+
+
+ pong u0 (
+        .ana_barra_d_export (<connected-to-ana_barra_d_export>), // ana_barra_d.export
+        .ana_barra_e_export (<connected-to-ana_barra_e_export>), // ana_barra_e.export
+        .barra_d_y_export   (<connected-to-barra_d_y_export>),   //   barra_d_y.export
+        .barra_e_y_export   (<connected-to-barra_e_y_export>),   //   barra_e_y.export
+        .bola_x_export      (<connected-to-bola_x_export>),      //      bola_x.export
+        .bola_y_export      (<connected-to-bola_y_export>),      //      bola_y.export
+        .clk_clk            (Clock)             //         clk.clk
+    );
+
+
+sicro tela (Clock, HSync, VSync, R, G, B, Reset_n, ADC_OUT, ADC_CNVST, ADC_CS_N, 
+ADC_REFSEL, ADC_SCLK, ADC_SD, ADC_UB, ADC_SEL, DATA_AD0, DATA_AD1, bola_x, bola_y,
+ barra_e_y, barra_d_y);
+
+
+
+endmodule
