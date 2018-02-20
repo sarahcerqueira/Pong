@@ -56,56 +56,61 @@
 
 
 
-
+# Inicia todos os dados do jogo
 _start:
+	#Dados para iniciar o lcd
 	movia r22, Zero
 	movia r23, Zero
 	call lcd
+
+	#Pocição inicial da bola
 	call posicao_inicial_bola
 
 	# Posição inicial da barra esquerda
 	movi r2, ad_1_e
 	ldw r3, 0(r2)
 
-	# n = valor analogico/ 4
-	movi r4, 4
+	#Identifica o intervalo onde a barra esta
+	movi r4, 4				# n = valor analogico/ 4
 	custom 2, r5, r3, r4	# resto da divisão entre o valo analogico /4
 	custom 1, r3, r3, r4	# pega a divisão entre o valor analogico /4
+	#/ Identifica o intervalo onde a barra esta
 
-	call converte
+	call converte			# Converte o valor analogico do potenciometro para uma posição na tela
 
 	movi r2, barra_e_y
-	stw r3, 0(r2)      	# escreve o valor da barra_e_y
-	mov r19, r3
+	stw r3, 0(r2)      		# escreve o valor da barra_e_y na tela
+	mov r19, r3				# Guarda o y atual da barra em r19
 
 	# Posição inicial da barra direita
 	movi r2, ad_0_d
 	ldw r3, 0(r2)
 
-	# n = valor analogico/ 4
-	movi r4, 4
+	#Identifica o intervalo onde a barra esta
+	movi r4, 4				# n = valor analogico/ 4
 	custom 2, r5, r3, r4	# resto da divisão entre o valo analogico /4
 	custom 1, r3, r3, r4	# pega a divisão entre o valor analogico /4
+	# /Identifica o intervalo onde a barra esta
 
-	call converte
+	call converte			# Converte o valor analogico do potenciometro para uma posição na tela
 
-	# escreve o valor da barra_d_y
 	movia r2, barra_d_y
-	stw r3, 0(r2)
- 	mov r20, r3
+	stw r3, 0(r2)		  	# escreve o valor da barra_d_y na tela
+ 	mov r20, r3				# Guarda o y atual da barra em r20
 
-  #Velocidade inicial da bola
+   # Seta a velocidade inicial da bola
    call velocidade_inicial_bola
 
 	# Pontos iniciais dos jogadores 1 e 2
 	addi r6, r0, 0
 	addi r7, r0, 0
 
-	call grau_30
-	call quarto_quadrante
-
+	#Angulo inicial
+	call angulo_aleatorio
+	
 	br inicia_jogo
 
+#Escreve na LCD do fpga através a custom 3
 lcd:
 	movi r4, 1
 	movia r2, i
@@ -150,18 +155,20 @@ lcd:
 	ret
 
 
+#Posição da bola considerando a tela 650 x 486
 posicao_inicial_bola:
   # Posição inical x da bola
   movi r2, bola_x
-  addi r17, r0, 305			# (Tela_x/2) -10
-  stw r17, 0(r2)					# Escreve valor inicial da bola em x
+  addi r17, r0, 315			# (Tela_x/2) -10
+  stw r17, 0(r2)			# Escreve valor inicial da bola em x
 
   # Posição inical y da bola
   movi r2, bola_y
-  addi r18, r0, 240			# (Tela_y/2)-10
-  stw r18, 0(r2)					# Escreve valor inicial da bola em y
+  addi r18, r0, 243			# (Tela_y/2)-10
+  stw r18, 0(r2)			# Escreve valor inicial da bola em y
   ret
 
+#r16 guarda a velocidade atual da bola
 velocidade_inicial_bola:
 	movi r16, 20
 	ret
@@ -172,6 +179,7 @@ soma:
   	addi r5, r0, 0		# Torna o teste falso
 
 # Converte o valor analógico para um valor correspondente no vga : n * 6 + 2
+# Onde n é o intervalo onde a barra está
 converte:
   	bne r5, r0, soma
   	movi r4, 6
@@ -193,50 +201,55 @@ play:
   	movi r2, ad_1_e
   	ldw r3, 0(r2)
 
+	#Identifica o intervalo onde a barra esta
   	movi r4, 4            # n = valor analogico/ 4
   	custom 2, r5, r3, r4	# resto da divisão entre o valo analogico /4
   	custom 1, r3, r3, r4	# pega a divisão entre o valor analogico /4
+	#/ Identifica o intervalo onde a barra esta
 
-  	call converte
+  	call converte			# Converte o valor analogico do potenciometro para uma posição na tela
 
   	movi r2, barra_e_y
   	stw r3, 0(r2)        # escreve o valor da barra_e_y na tela
-    mov r19, r3
+    mov r19, r3			# Guarda o y atual da barra em r19
 
   	# Posição da barra direita
   	movi r2, ad_0_d
   	ldw r3, 0(r2)
 
-  	# n = valor analogico/ 4
-  	movi r4, 4
+	#Identifica o intervalo onde a barra esta
+  	movi r4, 4				# n = valor analogico/ 4
   	custom 2, r5, r3, r4	# resto da divisão entre o valo analogico /4
   	custom 1, r3, r3, r4	# pega a divisão entre o valor analogico /4
+	#/Identifica o intervalo onde a barra esta	
 
-  	call converte
+  	call converte			# Converte o valor analogico do potenciometro para uma posição na tela
 
   	movi r2, barra_d_y
   	stw r3, 0(r2)        # escreve o valor da barra_d_y na tela
-	mov r20, r3
+	mov r20, r3 	 	 # Guarda o y atual da barra em r20
 
-  	call atualiza_x
-    call atualiza_y
-
+  	call atualiza_x	 #Atualiza valor de x de acordo com o quadrante(add ou sub), e com valor do seu incremento
+    call atualiza_y  #Atualiza valor de y de acordo com o quadrante(add ou sub), e com valor do seu incremento
+	
+	# Verifica se o botão de start foi apertado
     movi r2, rst
 	ldw r3, 0(r2)
-    bne r3, r0, _start
+    bne r3, r0, _start	#Se o botão foi aperto reinicia o jogo
 
   	# Prepara o delay
-    mov r15, r16
+    mov r15, r16		#Pega o valor atual do delay
   	slli r15, r15, 12
   	call delay
 
-  	# Verifica se houve colisão entre as barras ou a lateral
+  	# Verifica se houve colisão entre a bola e as barras, as laterais e a margem superior e inferior
   	call verifica_colisao
 
+	#Se não houve conlisão continua o jogo
   	br play
 
 
-# Passe de incremento correspondente aos ângulos
+# Passe de incremento que corresponde aos ângulos
 grau_15:
     addi r9, r0, 4				# Incremento de x
 	addi r10, r0, 1				# Incremento de y
@@ -262,9 +275,10 @@ grau_180:
 	addi r10, r0, 1				# Incremento de y
 	br identifica_quadrante
 
+#Define o proximo angulo através de um sorteio em verilog
 angulo_aleatorio:
 	movi r3, aleatorio
-	ldw  r4, 0(r3)
+	ldw  r4, 0(r3)		#Ler o valor sortedo, que está entre 0 e 3
 	
 	beq r0, r4, grau_15
 	movi r3, 1
@@ -274,31 +288,26 @@ angulo_aleatorio:
 	movi r3, 3
 	beq r3, r4, grau_60
 	
-
 # Buscar em qual quadrante está a bola em relação ao seu primeiro pixel
-# x > 350 : só pode está no quadrante 2 ou 4
-# x < 350: só pode está no quadrante 1 ou 3
+# x > 325 : só pode está no quadrante 2 ou 4 (lembrando que a bola tem raio 10)
+# x < 325: só pode está no quadrante 1 ou 3
 identifica_quadrante:
-	movi r4, 305
+	movi r4, 325
 	bgt r17, r4, quadrante24
 
-# y > 240 : terceiro quadrante
-# y < 240 : primeiro quadrante
+# y > 243 : terceiro quadrante
+# y < 243 : primeiro quadrante
 quadrante13:  
-	#mov r3, r18	#Move o valo y da bola para r3
-	movi r4, 230
+	movi r4, 243
 	bgt r18, r4, terceiro_quadrante
 	br primeiro_quadrante
 
-# y > 240 : quarto quadrante
-# y < 240 : segundo quadrante
+# y > 243 : quarto quadrante
+# y < 243 : segundo quadrante
 quadrante24:
-	# mov r3, r18	#Move o valo y da bola para r3
-	movi r4, 230
+	movi r4, 243
 	bgt r18, r4, quarto_quadrante
 	br segundo_quadrante
-
-
 
 # De acordo com o quadrante a orientação de x e y muda
 # Se 0 incrementa, se 1 diminui
@@ -365,6 +374,7 @@ sub_y:
   stw r18, 0(r2)       # Atualiza posição y da bola na tela
   ret
 
+#AGuarda um tempo para que o usuário possa ver o jogo
 delay:
 	subi r15, r15, 1
 	bne r15, r0, delay
@@ -391,13 +401,14 @@ verifica_colisao:
 	#Verifica se colidiu com as barras superiores ou inferiores
 	addi r3, r0, 478
 	mov r2, r18
-	addi r2, r2, 20
+	addi r2, r2, 20		#Adiciona devido ao raio 10
 	bge r2, r3, colisao_tb
 
 	#Se nao colidiu com ningu?m retorna
 	ret
 
-
+# Se a bota colidiu com a margem de cima ou com a debaixo é necessario trocar o movimento 
+# se não a bola vai voltar para onde veio
 colisao_tb:
 	movi r3, 1
 	beq r21, r3, terceiro_quadrante
@@ -414,12 +425,12 @@ verifica_colisao_barra_e:
 	beq r18, r19, intervalo_colisao_e  	#Se y0 da barra ? igual ao da bola: identifica quadrante para determinar o movimento de volta
 	bgt r18, r19, verifica_colisao_barra_e2 # Se y0 da bola for maior que o y0 da barra
 	
+	# Verifica a bola em relação barra para identificar quando a bola tocar na ponta da barra
 	mov r3, r18	
-
 	addi r3, r3, 20
 	bge r3, r19, intervalo_colisao_e
 
-  #Se n?o houve colis?o retorna
+  	#Se n?o houve colis?o retorna
   	br gol_d
 
 # Verifica se o y da bola ? < do que o y0 da barra + 80
@@ -434,6 +445,7 @@ verifica_colisao_barra_d:
 	beq r18, r20, intervalo_colisao_d #Se y0 da barra ? igual ao da bola: identifica quadrante para determinar o movimento de volta
 	bgt r18, r20, verifica_colisao_barra_d2 # Se y0 da bola for maior que o y0 da barra
 
+	# Verifica a bola em relação barra para identificar quando a bola tocar na ponta da barra
 	mov r3, r18
 	addi r3, r3, 20
 	bge r3, r20,intervalo_colisao_d
@@ -447,27 +459,32 @@ verifica_colisao_barra_d2:
 	bge r4, r18, intervalo_colisao_d
 	br gol_e
 
+#Adiciona pontos ao jogador da esquerda
 gol_e:
   addi r6, r6, 1
-  call converte_numero
-  call lcd
-  addi r2, r0, 5
-  beq r2, r6, _start
-  br reiniciar
+  call converte_numero	#Converte o número de pontos em hexa para o displat lcd
+  call lcd				# Atualiza lcd
+
+  addi r2, r0, 5		#Verifica se acabou o jogo, caso o jogador tenha 5 pontos
+  beq r2, r6, _start	# Inicia uma nova partida
+  br reiniciar			#Continua a partida
 
 gol_d:
   addi r7, r7, 1
-  call converte_numero2
-  call lcd
-  addi r2, r0, 5
-  beq r2, r7, _start
-  br reiniciar
+  call converte_numero2	#Converte o número de pontos em hexa para o displat lcd
+  call lcd				# Atualiza lcd
 
+  addi r2, r0, 5		#Verifica se acabou o jogo, caso o jogador tenha 5 pontos
+  beq r2, r7, _start	# Inicia uma nova partida
+  br reiniciar			#Continua a partida
+
+# Preparada para iniciar uma nova partida após um dos jogadores fazer um ponto
 reiniciar:
   call posicao_inicial_bola
   call velocidade_inicial_bola
   br inicia_jogo
 
+# Verifica se ainda pode aumenta a velocidade da bola
 verifica_velocidade_bola:
   addi r4, r0, 10
   bgt r16, r4, aumenta_velocidade_bola # Verifica se o número base da velocidade é menor do que o limite
@@ -477,14 +494,17 @@ aumenta_velocidade_bola:
   subi r16, r16, 1
   ret
 
+# Pega a barra na qual a bola colodiu
 intervalo_colisao_e:
 	mov r3, r19
 	br identifica_intervalo_colisao
 
+# Pega a barra na qual a bola colodiu
 intervalo_colisao_d:
 	mov r3, r20
 	br identifica_intervalo_colisao
 
+# Busca em qual intervalo da barra o y da bola colidiu para identificar o angulo de retorno
 #No r3 já deve está o y da barra
 identifica_intervalo_colisao:
 	addi r3, r3, 16
@@ -497,6 +517,7 @@ identifica_intervalo_colisao:
 	bge  r3, r18, grau_45
 	br angulo_aleatorio
 
+# Converte os pontos do jogador da esqueda para o hexadecimal correspondente no lcd
 converte_numero:
 	movi r3, 1
 	beq r6, r3, lcd_1e
@@ -529,6 +550,7 @@ lcd_5e:
 	movia r22, Cinco
 	ret
 
+# Converte os pontos do jogador da direita para o hexadecimal correspondente no lcd
 converte_numero2:
 	movi r3, 1
 	beq r7, r3, lcd_1d
