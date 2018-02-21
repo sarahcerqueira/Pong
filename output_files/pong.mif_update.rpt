@@ -1,5 +1,5 @@
 MIF/HEX Update report for pong
-Mon Feb 19 17:10:20 2018
+Tue Feb 20 11:25:52 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; MIF/HEX Update Summary                                        ;
 +-----------------------+---------------------------------------+
-; MIF/HEX Update Status ; Successful - Mon Feb 19 17:10:20 2018 ;
+; MIF/HEX Update Status ; Successful - Tue Feb 20 11:25:52 2018 ;
 ; Revision Name         ; pong                                  ;
 ; Top-level Entity Name ; pong_t                                ;
 ; Family                ; Cyclone IV E                          ;
@@ -59,7 +59,7 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime MIF/HEX Update
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Mon Feb 19 17:10:17 2018
+    Info: Processing started: Tue Feb 20 11:25:48 2018
 Info: Command: quartus_cdb pong -c pong --update_mif
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Warning (39023): Can't find Memory Initialization File pong_nios_rf_ram_a.mif -- skipped updates for this file
@@ -80,9 +80,9 @@ Critical Warning (127005): Memory depth (3000) in the design file differs from m
 Info (39024): Processed the following Memory Initialization File(s)
     Info (39025): Processed Memory Initialization File C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex File: C:/intelFPGA_lite/16.1/pong/pong/onchip_mem.hex Line: 0
 Info: Quartus Prime MIF/HEX Update was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 666 megabytes
-    Info: Processing ended: Mon Feb 19 17:10:20 2018
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Peak virtual memory: 665 megabytes
+    Info: Processing ended: Tue Feb 20 11:25:52 2018
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 

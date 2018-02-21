@@ -59,7 +59,7 @@ reg [9:0] barra_d_x = 630;
 reg [9:0] barra_s_x = 0;       //Posição x da barra superior
 reg [9:0] barra_s_y = 0;      //Posição y da barra superior
 reg [9:0] barra_i_x = 0;       //Posição x da barra inferior
-reg [9:0] barra_i_y = 480;     //Posição x da barra inferior
+reg [9:0] barra_i_y = 474;     //Posição x da barra inferior
 
 
 

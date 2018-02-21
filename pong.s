@@ -271,8 +271,8 @@ grau_60:
 	br identifica_quadrante
 
 grau_180:
-	addi r9, r0, 0				# Incremento de x
-	addi r10, r0, 1				# Incremento de y
+	addi r9, r0, 1				# Incremento de x
+	addi r10, r0, 0				# Incremento de y
 	br identifica_quadrante
 
 #Define o proximo angulo através de um sorteio em verilog
@@ -287,6 +287,7 @@ angulo_aleatorio:
 	beq r3, r4, grau_45
 	movi r3, 3
 	beq r3, r4, grau_60
+	br identifica_quadrante
 	
 # Buscar em qual quadrante está a bola em relação ao seu primeiro pixel
 # x > 325 : só pode está no quadrante 2 ou 4 (lembrando que a bola tem raio 10)
@@ -316,7 +317,7 @@ quadrante24:
 
 # +x +y
 primeiro_quadrante:
-	addi r21, r0, 1
+	addi r21, r0, 1		#Guarda quadrante anterior
 	addi r11, r0, 0
   	addi r12, r0, 0
   	br verifica_velocidade_bola
@@ -481,6 +482,7 @@ gol_d:
 # Preparada para iniciar uma nova partida após um dos jogadores fazer um ponto
 reiniciar:
   call posicao_inicial_bola
+  call angulo_aleatorio
   call velocidade_inicial_bola
   br inicia_jogo
 
